@@ -1,0 +1,74 @@
+body {
+    width: 100%;
+    background-color: lightblue;
+}
+#calculatorBody {
+    display: grid;
+    padding: 0;
+    height: 500px;
+    width: 500px;
+    background-color: grey;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-areas: 
+    "display display display display"
+    "row1 row1 row1 operators"
+    "row2 row2 row2 operators"
+    "row3 row3 row3 operators"
+    "row4 row4 row4 operators";
+    justify-items: stretch;
+}
+
+#row1 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-area: row1;
+}
+
+#row2 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-area: row2;
+}
+
+#row3 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-area: row3;
+}
+
+#row4 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-area: row4;
+}
+
+#displayOutput {
+    grid-area: display;
+    font-family: 'Orbitron', sans-serif;
+    text-align: right;
+    padding: 30px 0px 0px 0px;
+    font-size: 30pt;
+    color: lightgrey;
+    border: 2px solid black;
+}
+
+.number {
+    width: 100%;
+    padding: 1px;
+    background-color: lightgrey;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.operator {  
+    background-color: lightgrey;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#operators {
+    display: grid;
+    justify-items: stretch;
+    grid-area: operators;
+}
