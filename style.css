@@ -61,10 +61,28 @@ body {
     text-align: center;
 }
 
+.number:hover {
+    background-color: grey;
+}
+
+.number:active {
+    background-color: black;
+    color: white;
+}
+
 .operator {  
     background-color: lightgrey;
     border: 1px solid black;
     text-align: center;
+}
+
+.operator:hover {
+    background-color: grey;
+}
+
+.operator:active {
+    background-color: black;
+    color: white;
 }
 
 #operators {
