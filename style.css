@@ -53,7 +53,7 @@ body {
     border: 2px solid black;
 }
 
-.number {
+.number, .blank {
     width: 100%;
     padding: 1px;
     background-color: lightgrey;
