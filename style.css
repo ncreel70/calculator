@@ -70,7 +70,7 @@ body {
     color: white;
 }
 
-.operator {  
+.operator, .evaluate {  
     background-color: lightgrey;
     border: 1px solid black;
     text-align: center;
