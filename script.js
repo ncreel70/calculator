@@ -1,46 +1,50 @@
 const display = document.getElementById('displayOutput');
-let preValue = '';
-let postValue = '';
-let mathOperator = '';
+let firstOperand = '';
+let secondOperand = '';
+let operator = '';
 let solution = '';
-let regexNumber = /[^0-9]/g
 
 const numButtonPress = (num) => {
-    if (display.textContent === '0' && mathOperator === ''){
-        preValue = num;
-        display.textContent = preValue;
-    } else if (display.textContent.length < 10 && mathOperator === '') {
+    if (display.textContent === '0' && operator === ''){
+        display.textContent = num;
+        firstOperand = num;
+    } else if (display.textContent.length < 10 && operator === '') {
         display.textContent += num;
+        firstOperand = display.textContent;
+    } else if (firstOperand != '' && secondOperand === '') {
+        secondOperand = num;
+        display.textContent = secondOperand;
     } else {
-        postValue = num;
+        display.textContent += num;
+        secondOperand = display.textContent;
     }
 }
 
-const operatorButtonPress = (operator) => {
-    mathOperator = operator;
-    if(postValue != '') {
-        switch (operator) {
-            case '+':
-                solution = preValue + postValue;
-                preValue = solution;
-                display.textContent = solution;
-                break;
-            case '-':
-                solution = preValue - postValue;
-                display.textContent = solution;
-                preValue = solution;
-                break;
-            case '*':
-                solution = preValue * postValue;
-                display.textContent = solution;
-                preValue = solution;
-                break;
-            case '/':
-                solution = preValue / postValue;
-                display.textContent = solution;
-                preValue = solution;
-                break;
+const operatorButtonPress = (operatorButton) => {
+    return operator = operatorButton;
+}
 
-        }
+const equalityButtonPress = () => {
+    switch (operator) {
+        case '+':
+            solution = parseInt(firstOperand) + parseInt(secondOperand);
+            return display.textContent = solution;
+        case '-':
+            solution = parseInt(firstOperand) - parseInt(secondOperand);
+            return display.textContent = solution;
+        case '*':
+            solution = parseInt(firstOperand) * parseInt(secondOperand);
+            return display.textContent = solution;
+        case '/':
+            solution = parseInt(firstOperand) / parseInt(secondOperand);
+            return display.textContent = solution;
     }
+}
+
+const allClear = () => {
+    firstOperand = '';
+    secondOperand = '';
+    operator = '';
+    solution = '';
+    display.textContent = '0';
 }

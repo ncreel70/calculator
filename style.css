@@ -70,17 +70,17 @@ body {
     color: white;
 }
 
-.operator, .evaluate {  
+.operator, .evaluate, .clear {  
     background-color: lightgrey;
     border: 1px solid black;
     text-align: center;
 }
 
-.operator:hover {
+.operator:hover, .evaluate:hover, .clear:hover {
     background-color: grey;
 }
 
-.operator:active {
+.operator:active, .evaluate:active, .clear:active {
     background-color: black;
     color: white;
 }
