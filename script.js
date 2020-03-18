@@ -5,38 +5,50 @@ let operator = '';
 let solution = '';
 
 const numButtonPress = (num) => {
-    if (display.textContent === '0' && operator === ''){
-        display.textContent = num;
+    if (display.textContent === '0' && solution == ''){
         firstOperand = num;
-    } else if (display.textContent.length < 10 && operator === '') {
+        display.textContent = num;
+    } else if (display.textContent.length < 10 && solution == '') {
         display.textContent += num;
         firstOperand = display.textContent;
-    } else if (firstOperand != '' && secondOperand === '') {
-        secondOperand = num;
-        display.textContent = secondOperand;
-    } else {
+    } else if (firstOperand == '') {
+        display.textContent = '';
+        firstOperand = num;
+        display.textContent = num;
+    } else if (display.textContent.length < 10) {
         display.textContent += num;
-        secondOperand = display.textContent;
+        firstOperand = display.textContent;
     }
 }
 
 const operatorButtonPress = (operatorButton) => {
-    return operator = operatorButton;
+    if (secondOperand == '') {
+        operator = operatorButton;
+        display.textContent = '';
+        secondOperand = firstOperand;
+        firstOperand = '';
+    } else if (secondOperand != '') {
+        equalityButtonPress();
+        operator = operatorButton;
+        secondOperand = solution;
+        firstOperand = '';
+    }
 }
 
 const equalityButtonPress = () => {
     switch (operator) {
         case '+':
-            solution = parseInt(firstOperand) + parseInt(secondOperand);
-            return display.textContent = solution;
+            solution = parseInt(secondOperand) + parseInt(firstOperand);
+            display.textContent = solution;
+            break;
         case '-':
-            solution = parseInt(firstOperand) - parseInt(secondOperand);
+            solution = parseInt(secondOperand) - parseInt(firstOperand);
             return display.textContent = solution;
         case '*':
-            solution = parseInt(firstOperand) * parseInt(secondOperand);
+            solution = parseInt(secondOperand) * parseInt(firstOperand);
             return display.textContent = solution;
         case '/':
-            solution = parseInt(firstOperand) / parseInt(secondOperand);
+            solution = parseInt(secondOperand) / parseInt(firstOperand);
             return display.textContent = solution;
     }
 }
